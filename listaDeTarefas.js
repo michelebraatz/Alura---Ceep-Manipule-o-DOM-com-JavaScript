@@ -1,5 +1,7 @@
-//função
-const criarTarefa = (evento) => {
+//função de execução imediata - utilizando dessa forma não aparece mais no escopo global, somente no escopo dessa função
+(() => { 
+    
+    const criarTarefa = (evento) => {
     //evento
     evento.preventDefault();    
 
@@ -68,6 +70,8 @@ const concluirTarefa = (evento) => {
 
     //efeito de rabisco na li
     tarefaCompleta.classList.toggle('done');
-
 }
+})
+// indica para o navegador que está utilizando a função dentro dela
+()
 
