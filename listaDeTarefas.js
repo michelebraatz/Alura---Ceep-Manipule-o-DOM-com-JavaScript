@@ -28,6 +28,9 @@
     //adicionando elemento botao
     tarefa.appendChild(BotaoConclui());
 
+    //adicionando o elemento dentro do elemento pai quue é o li
+    tarefa.appendChild(BotaoDeleta());    
+
     //adicionando elemento dentro do outro, li dentro de ul.
     lista.appendChild(tarefa);
     
@@ -59,19 +62,46 @@ const BotaoConclui = () => {
     return botaoConclui;
 }
 
-//função 
+
+//função criar tarefa
 
 const concluirTarefa = (evento) => {
     //descobre qual elemento foi clicado atraves do target
     const botaoConclui = evento.target
-
+    
     //pegou o pai do elemento botão li
     const tarefaCompleta = botaoConclui.parentElement
-
+    
     //efeito de rabisco na li
     tarefaCompleta.classList.toggle('done');
 }
+
+//função deletar
+const BotaoDeleta = (evento) => {
+    //criar botão deleta
+    const botaoDeleta = document.createElement('button');
+
+    //colocar nome no botão
+    botaoDeleta.innerHTML = 'Deletar' 
+    
+    //evento click e função
+    botaoDeleta.addEventListener('click', deletarTarefa);
+
+    return botaoDeleta;
+                
+}
+// deletar
+const deletarTarefa = (evento) => {
+    const botaoDeleta = evento.target
+    
+    const tarefaCompleta = botaoDeleta.parentElement
+
+    tarefaCompleta.remove()
+
+    return botaoDeleta;
+}
 })
+
 // indica para o navegador que está utilizando a função dentro dela
 ()
 
