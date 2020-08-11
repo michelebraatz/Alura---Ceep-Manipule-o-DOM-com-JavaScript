@@ -3,18 +3,30 @@ const criarTarefa = (evento) => {
     //evento
     evento.preventDefault();    
 
+    //lista - buscando elemento da ul
+    const lista = document.querySelector('[data-list]');
+    
     //input
     const input = document.querySelector('[data-form-input]');
+    
     //Capturando valor do input
     const valor = input.value;
-    input.value = " "
 
-    //preenchendo lista apos cadastrar novo item
-    const tarefa = document.querySelector('[data-task]');
+    //Criando li
+    const tarefa = document.createElement('li');
+    //acessar class para o elemento li
+    tarefa.classList.add('task');
+   
     //criando modelo parágrafo
-    const conteudo = `<p class="content">${valor}</p>`
-    //acessando valor da li e adicionando conteudo dentro dele        
-    tarefa.innerHTML = conteudo
+    const conteudo = `<p class="content">${valor}</p>`  
+
+    tarefa.innerHTML = conteudo;
+
+    //adicionando elemento dentro do outro, li dentro de ul.
+    lista.appendChild(tarefa);
+    
+    //Limpa o input
+    input.value = " ";
 }
 
 //button
