@@ -52,11 +52,22 @@ const BotaoConclui = () => {
 
 
     //evento click
-    botaoConclui.addEventListener('click', ()=> {
-        console.log('Fui clicado');
-    })
+    botaoConclui.addEventListener('click', concluirTarefa);
 
     return botaoConclui;
+}
+
+//função 
+
+const concluirTarefa = (evento) => {
+    //descobre qual elemento foi clicado atraves do target
+    const botaoConclui = evento.target
+
+    //pegou o pai do elemento botão li
+    const tarefaCompleta = botaoConclui.parentElement
+
+    //efeito de rabisco na li
+    tarefaCompleta.classList.toggle('done');
 
 }
 
