@@ -14,6 +14,7 @@ const criarTarefa = (evento) => {
 
     //Criando li
     const tarefa = document.createElement('li');
+
     //acessar class para o elemento li
     tarefa.classList.add('task');
    
@@ -21,6 +22,9 @@ const criarTarefa = (evento) => {
     const conteudo = `<p class="content">${valor}</p>`  
 
     tarefa.innerHTML = conteudo;
+
+    //adicionando elemento botao
+    tarefa.appendChild(BotaoConclui());
 
     //adicionando elemento dentro do outro, li dentro de ul.
     lista.appendChild(tarefa);
@@ -34,3 +38,25 @@ const novaTarefa = document.querySelector('[data-form-button]');
 
 // Escutando evento
 novaTarefa.addEventListener('click', criarTarefa);
+
+//criando um componente do botão
+
+const BotaoConclui = () => {
+    const botaoConclui = document.createElement('button');
+
+    //adicionando class ao botao check
+    botaoConclui.classList.add('check-button');
+     
+    //adicionando texto ao botão check
+    botaoConclui.innerText = 'concluir';
+
+
+    //evento click
+    botaoConclui.addEventListener('click', ()=> {
+        console.log('Fui clicado');
+    })
+
+    return botaoConclui;
+
+}
+
